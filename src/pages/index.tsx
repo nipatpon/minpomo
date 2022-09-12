@@ -63,8 +63,9 @@ export default function Index({}) {
 		).length;
 		let inprogress: number = taskForms.filter(
 			(task) => task.status !== "success"
-		).length;
-		let progress: number = Math.floor((success / inprogress) * 100);
+		).length; 
+
+		let progress: number = Math.floor((success / taskForms.length) * 100);
 		return {
 			success,
 			inprogress,
@@ -81,6 +82,8 @@ export default function Index({}) {
 		setTaskForms(getTodayTasks());
 		getProgressTasks();
 	}, [taskState]);
+
+	console.log("progressTasks ", progressTasks);
 
 	return (
 		<>
@@ -100,11 +103,7 @@ export default function Index({}) {
 									// value={100}
 									text={`${progressTasks?.progress || 0}%`}
 									styles={{
-										// path: {
-										// 	strokeLinecap: "butt",
-										// 	transition: "stroke-dashoffset 0.5s ease 0s",
-										// 	transformOrigin: "center center",
-										// },
+										
 										text: {
 											fill: "#f88",
 											fontSize: "22px",
