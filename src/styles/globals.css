@@ -1,0 +1,58 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "Kanit", sans-serif;
+	height: 100%;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+#__next {
+	height: 100%;
+}
+
+/* #F0EBE3
+#E4DCCF
+#7D9D9C
+#576F72 */
+
+/* datePicker custom style */
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next {
+	top: 10px !important;
+}
+
+.react-datepicker__day--today {
+	border-radius: 5px;
+	background-color: #5a5a5a !important;
+	color: aliceblue !important;
+}
+
+.react-datepicker__day--selected {
+	background-color: #f87171 !important;
+}
+
+/* Progress Bar */
+ 
