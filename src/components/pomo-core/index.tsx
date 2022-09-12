@@ -164,11 +164,11 @@ function PomoCore(props: IPomoCore) {
 					_reload(2);
 				} else {
 					setActiveAt(1);
-					_reload(1);
-					callback({
-						pomoCount: pomoCount + 1,
-					});
+					_reload(1); 
 				}
+				callback({
+					pomoCount: pomoCount + 1,
+				});
 				setPomoCount(pomoCount + 1);
 				break;
 		}
