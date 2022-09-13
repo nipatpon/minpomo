@@ -49,8 +49,7 @@ function FocusNavbar(props: IFocusNavbar) {
 				contents: (
 					<>
 						<h6>
-						`&ldquo;`<b className="text-red-300">{selectTask.title}</b>
-						`&ldquo;` task?
+						Want to delete <b className="text-red-300">{selectTask.title}</b> task?
 						</h6>
 					</>
 				),

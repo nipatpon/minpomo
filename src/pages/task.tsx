@@ -97,7 +97,7 @@ function TaskBoard() {
 				type: "confirm",
 				contents: (
 					<h6>
-						Want to delete `&ldquo;`<b className="text-red-300">{task.title}</b>`&ldquo;` task?
+						Want to delete  <b className="text-red-300">{task.title}</b> task?
 					</h6>
 				),
 				handleConfirm: () => {

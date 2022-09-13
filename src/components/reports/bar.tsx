@@ -33,7 +33,7 @@ export const default_option: any = {
 		},
 		title: {
 			display: true,
-			text: "Chart.js Bar Chart",
+			// text: "Chart.js Bar Chart",
 		},
 	},
 };
@@ -80,16 +80,17 @@ export default function BarReport(props: TBarOption) {
 	});
 
 	useEffect(() => {
-		if (summaryBy === "week") {
+		if (summaryBy === "week") { 
 			let successTask = [];
 			let unSuccessTask = [];
 			for (let index = 0; index < 7; index++) {
+
 				let dayEquaTask = taskState.forms.filter((task) => {
 					return (
 						dayjs(range[0]).add(index, "day").format("YYYY-MM-DD") ===
 						dayjs(task.date).format("YYYY-MM-DD")
 					);
-				});
+				}); 
 
 				successTask.push(
 					dayEquaTask.filter((taks) => {
@@ -102,6 +103,7 @@ export default function BarReport(props: TBarOption) {
 					}).length
 				);
 			}
+ 
 
 			let day_data: RootObject = {
 				labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],

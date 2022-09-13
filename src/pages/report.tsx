@@ -13,19 +13,17 @@ export default function Report() {
 	const [summaryBy, setSummaryBy] = useState<"week" | "month" | "year">("week");
 	const [currPoint, setCurrPoint] = useState<Number>(dayjs().week());
 	const [range, setRange] = useState<Date[]>([
-		dayjs().week(Number(currPoint)).toDate(),
-		dayjs().week(Number(currPoint)).add(6, "day").toDate()
-	]);
-
-	// const []
+		dayjs().weekday(0).toDate(),
+		dayjs().weekday(6).toDate()
+	]); 
 
 	useEffect(() => {
-		if (summaryBy === "week") {
+		if (summaryBy === "week") {  
 			setCurrPoint(dayjs().week());
 			setRange([
-				dayjs().week(Number(dayjs().week())).toDate(),
-				dayjs().week(Number(dayjs().week())).add(6, "day").toDate()
-			]) 
+				dayjs().weekday(0).toDate(),
+				dayjs().weekday(6).toDate()
+			])   
 		} else if (summaryBy === "month") {
 			setCurrPoint(dayjs().month());
 			setRange([
@@ -59,8 +57,8 @@ export default function Report() {
 					last = dayjs().year(cvtCurr - 1).endOf('y').toDate();
 					break;
 				default:
-					first = dayjs().week(cvtCurr - 1).toDate();
-					last = dayjs().week(cvtCurr - 1).add(6, "day").toDate();
+					first = dayjs().week(cvtCurr - 1).weekday(0).toDate();
+					last = dayjs().week(cvtCurr - 1).weekday(6).toDate() ;
 					break;
 			}
 		} else {
@@ -76,8 +74,8 @@ export default function Report() {
 					last = dayjs().year(cvtCurr + 1).endOf('y').toDate();
 					break;
 				default:
-					first = dayjs().week(cvtCurr + 1).toDate();
-					last = dayjs().week(cvtCurr + 1).add(6, "day").toDate();
+					first = dayjs().week(cvtCurr + 1).weekday(0).toDate();
+					last = dayjs().week(cvtCurr + 1).weekday(6).toDate() ;
 					break;
 			}
 		} 
