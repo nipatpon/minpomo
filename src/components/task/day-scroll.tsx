@@ -146,14 +146,15 @@ export default function DayScroll(props: IDayScroll) {
 				onScroll={_onScroll}
 			>
 				{monthDays.map((day: TDayObj, i: number) => {
-					let today: number = Number(dayjs().format("D"));
-
+					let fetchDate: string = dayjs(day.date+'00:00:00').format('YYYY-MM-DD HH:mm:ss');
+					let today: string = dayjs().format('YYYY-MM-DD 00:00:00');
+					
 					return (
 						<div className="snap-center drop-shadow-md" key={"day_" + i}>
 							<div
 								className={`my-2 p-1 text-sm text-center text-white rounded-2xl w-[40px] 
 								${
-									day.dayIndex >= today
+									(dayjs(today).isSame(fetchDate) || dayjs(today).isBefore(fetchDate))
 										? "text-red-400 bg-white border-4 border-red-400"
 										: day.dayIndex > 0
 										? "bg-zinc-400 border-4 border-zinc-400"
