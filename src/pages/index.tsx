@@ -203,7 +203,7 @@ export default function Index({}) {
 export async function getServerSideProps(context: any) {
 	return {
 		props: {
-			csrfToken: await getCsrfToken(context),
+			csrfToken: await getCsrfToken(context) ?? null,
 		},
 	};
 }

@@ -21,7 +21,7 @@ export default function Navbar({ }: INav) {
 		<div className="w-[100%]">
 			<div className="border-b top-0 fixed w-[100%] h-[60px] bg-white z-10">
 				{/* <div className="border-b bottom-0 fixed w-[320px] sm:w-[480px]"> */}
-				<nav className="mx-auto p-[0.6rem] h-[60px]">
+				<nav className="mx-auto p-[0.6rem] h-[60px] max-w-screen-sm">
 					<div className={`flex justify-between py-1`}>
 						<div className="flex">
 							<h5 className={`text-[22px] text-[#f87171] cursor-pointer`}>

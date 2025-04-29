@@ -135,7 +135,8 @@ export async function getServerSideProps(context: any) {
 	return {
 		props: {
 			// ...await serverSideTranslations(context.locale, ['login']),
-			csrfToken: await getCsrfToken(context),
+			// csrfToken: await getCsrfToken(context),
+			csrfToken: await getCsrfToken(context) ?? null,
 		},
 	};
 }

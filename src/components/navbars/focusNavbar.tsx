@@ -66,7 +66,7 @@ function FocusNavbar(props: IFocusNavbar) {
 
 	return (
 		<div className="border-b top-0 fixed w-[100%] h-[60px] bg-white z-10">
-			<nav className="mx-auto p-[0.6rem] h-[60px]">
+			<nav className="mx-auto p-[0.6rem] h-[60px] max-w-screen-md">
 				<div className={`flex justify-between py-1`}>
 					<div className="flex">
 						<AiOutlineLeft
