@@ -49,7 +49,7 @@ export default function DayScroll(props: IDayScroll) {
 
 	const dayListsRef = useRef<HTMLDivElement>(null);
 	const [monthDays, setMonthDays] = useState(getDays(defaultDate));
-	const [pointDateX, setPointDateX] = useState(-10000); 
+	const [pointDateX, setPointDateX] = useState(-10000);
 
 	let rawIsScrolling: boolean = false;
 	let rawClientX: number = 0;
@@ -75,7 +75,7 @@ export default function DayScroll(props: IDayScroll) {
 
 	useEffect(() => {
 		setMonthDays(getDays(defaultDate));
-		mvToDate(); 
+		mvToDate();
 	}, [defaultDate]);
 
 	const mvToDate = () => {
@@ -146,25 +146,25 @@ export default function DayScroll(props: IDayScroll) {
 				onScroll={_onScroll}
 			>
 				{monthDays.map((day: TDayObj, i: number) => {
-					let fetchDate: string = dayjs(day.date+'00:00:00').format('YYYY-MM-DD HH:mm:ss');
+					let fetchDate: string = dayjs(day.date + '00:00:00').format('YYYY-MM-DD HH:mm:ss');
 					let today: string = dayjs().format('YYYY-MM-DD 00:00:00');
-					
+
+
 					return (
 						<div className="snap-center drop-shadow-md" key={"day_" + i}>
 							<div
 								className={`my-2 p-1 text-sm text-center text-white rounded-2xl w-[40px] 
-								${
-									(dayjs(today).isSame(fetchDate) || dayjs(today).isBefore(fetchDate))
+								${(dayjs(today).isSame(fetchDate) || dayjs(today).isBefore(fetchDate))
 										? "text-red-400 bg-white border-4 border-red-400"
 										: day.dayIndex > 0
-										? "bg-zinc-400 border-4 border-zinc-400"
-										: ""
-								}`}
+											? "bg-zinc-400 border-4 border-zinc-400"
+											: ""
+									}`}
 							>
 								{day.dayIndex > 0 && (
 									<div>
-										<h6 className="text-[12px]">{day.day}</h6>
-										<h4>{`${day.dayIndex}`}</h4>
+										<h6 className={`text-[12px] ${(dayjs(today).isSame(fetchDate) || dayjs(today).isBefore(fetchDate)) ? "text-red-400" : "text-white"}`}>{day.day}</h6>
+										<h4 className={` ${(dayjs(today).isSame(fetchDate) || dayjs(today).isBefore(fetchDate)) ? "text-red-400" : "text-white"}`}>{`${day.dayIndex}`}</h4>
 									</div>
 								)}
 							</div>

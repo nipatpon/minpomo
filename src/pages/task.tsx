@@ -18,18 +18,18 @@ import {
 import { openModalAsync } from "../store/slices/app-modal/app-modal.slice";
 import DayScroll from "../components/task/day-scroll";
 import { shallowEqual } from "react-redux";
-import CmpIcons from "../components/icons";  
+import CmpIcons from "../components/icons";
 
 function TaskBoard() {
-	
+
 	const taskState: TasksState = useAppSelector(
 		(state: RootState) => state.task.state,
 		shallowEqual
-	); 
-	
+	);
+
 	const dispatch = useAppDispatch();
 	const router = useRouter();
-	const { date } = router.query; 
+	const { date } = router.query;
 
 	const initialDate: Date = date
 		? dayjs(date + " 00:00:00").toDate()
@@ -129,7 +129,7 @@ function TaskBoard() {
 							dateValue={currentDate}
 							handleSetDate={_handleSetDate}
 							customInput={
-								<button className="w-full" type="button" onClick={() => {}}>
+								<button className="w-full" type="button" onClick={() => { }}>
 									{dayjs(currentDate).format(`MMMM, YYYY`)}
 								</button>
 							}

@@ -3,8 +3,8 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import _ from "lodash";
 import { useAppDispatch, useAppSelector } from "../../store/hook";
 import {
-	appModalState,
-	closeModalAsync,
+	appModalState, 
+	openModalAsync,
 } from "../../store/slices/app-modal/app-modal.slice";
 import { RootState } from "../../store/store";
 import Task from "../task/form";
@@ -17,7 +17,7 @@ function TaskForm(props: appModalState) {
 	const appModal = useAppSelector((state: RootState) => state.appModal);
 
 	const _handleClose = () => {
-		dispatch(closeModalAsync());
+		dispatch(openModalAsync({ isVisible: false }));
 	};
 
 	useEffect(() => {
